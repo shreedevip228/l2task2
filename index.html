@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="todo-container">
+    <header class="header">
+      <h1>📝 To-Do List</h1>
+      <button id="dark-mode-toggle" aria-pressed="false">🌙 Dark Mode</button>
+    </header>
+
+    <!-- Input Section -->
+    <form id="task-form" class="input-section" autocomplete="off">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="Enter a new task..."
+        aria-label="New task"
+      />
+      <button id="add-task-btn" type="submit">Add</button>
+    </form>
+
+    <!-- Filter Section -->
+    <nav class="filter-section" aria-label="Task filters">
+      <button class="filter-btn" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+    </nav>
+
+    <!-- Task List -->
+    <ul id="task-list" role="list" aria-live="polite"></ul>
+
+    <!-- Bottom: counter + clear -->
+    <div class="bottom-section">
+      <div id="task-counter">No tasks yet. Add one above!</div>
+      <button id="clear-completed-btn" type="button">Clear Completed</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

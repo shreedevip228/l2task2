@@ -1,0 +1,123 @@
+/* --------- CSS Variables (light theme) --------- */
+:root{
+  --bg-grad-1:#74ebd5; --bg-grad-2:#9face6;
+  --card:#ffffff; --text:#2f2f2f; --muted:#666;
+  --border:#e6e6e6;
+  --primary:#4cafef; --primary-600:#2196f3;
+  --warning:#ffc107; --warning-600:#e0a800;
+  --danger:#e74c3c; --danger-600:#c0392b;
+  --item:#f9f9f9; --item-hover:#f0f0f0;
+}
+
+/* --------- Reset --------- */
+*{ margin:0; padding:0; box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+  color:var(--text);
+}
+
+/* --------- Card --------- */
+.todo-container{
+  width:min(92vw, 520px);
+  background:var(--card);
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  padding:22px 22px 18px;
+  transition:transform .2s ease;
+}
+.todo-container:hover{ transform: translateY(-2px); }
+
+.header{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:14px;
+}
+h1{ font-size:1.6rem; font-weight:800; letter-spacing:.2px; }
+
+#dark-mode-toggle{
+  background:#333; color:#fff; border:0; padding:8px 12px;
+  border-radius:10px; cursor:pointer; font-size:.93rem; transition:.2s;
+}
+#dark-mode-toggle:hover{ background:#555; }
+
+/* --------- Input --------- */
+.input-section{ display:flex; gap:10px; margin:10px 0 12px; }
+#task-input{
+  flex:1; padding:10px 12px; border:2px solid var(--border);
+  border-radius:10px; outline:none; transition:border-color .2s;
+}
+#task-input:focus{ border-color: var(--primary); }
+#add-task-btn{
+  background:var(--primary); color:#fff; border:0; border-radius:10px;
+  padding:10px 14px; font-weight:700; cursor:pointer; transition:.2s;
+}
+#add-task-btn:hover{ background:var(--primary-600); }
+
+/* --------- Filters --------- */
+.filter-section{
+  display:flex; gap:10px; justify-content:flex-start; margin:6px 0 12px;
+}
+.filter-btn{
+  border:0; padding:8px 12px; border-radius:10px; cursor:pointer;
+  background:#f1f1f1; color:#333; transition:.2s; font-weight:600;
+}
+.filter-btn:hover{ background:#e7e7e7; }
+.filter-btn.active{ background:var(--primary); color:#fff; }
+
+/* --------- Tasks --------- */
+#task-list{ list-style:none; }
+li.task{
+  background:var(--item); border-radius:12px;
+  padding:12px; display:flex; align-items:center; justify-content:space-between;
+  gap:12px; margin-bottom:10px; transition:background .2s;
+}
+li.task:hover{ background:var(--item-hover); }
+.task-left{ display:flex; align-items:center; gap:10px; min-width:0; }
+.task-left input[type="checkbox"]{ width:18px; height:18px; }
+.task-text{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+li.completed .task-text{ text-decoration:line-through; color:var(--muted); }
+
+.task-actions{ display:flex; gap:8px; }
+.action-btn{
+  border:0; padding:7px 12px; border-radius:10px; cursor:pointer;
+  font-weight:700; transition:.2s; font-size:.9rem;
+}
+.edit-btn{ background:var(--warning); color:#fff; }
+.edit-btn:hover{ background:var(--warning-600); }
+.delete-btn{ background:var(--danger); color:#fff; }
+.delete-btn:hover{ background:var(--danger-600); }
+
+/* --------- Bottom --------- */
+.bottom-section{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-top:8px; gap:10px;
+}
+#task-counter{ font-size:.95rem; font-weight:600; color:#444; }
+#clear-completed-btn{
+  background:#ff5252; color:#fff; border:0; padding:8px 12px;
+  border-radius:10px; cursor:pointer; font-size:.88rem; transition:.2s;
+}
+#clear-completed-btn:hover{ background:#e53935; }
+
+/* --------- Dark Theme --------- */
+body.dark{
+  --bg-grad-1:#1e1e2f; --bg-grad-2:#2d2d44;
+  --card:#2a2a40; --text:#e8e8f0; --muted:#bdbdd6; --border:#50506b;
+  --item:#3a3a55; --item-hover:#4a4a66;
+}
+body.dark #dark-mode-toggle{ background:#1f1f2f; }
+body.dark #dark-mode-toggle:hover{ background:#32324a; }
+body.dark #task-counter{ color:#e8e8f0; }
+body.dark .filter-btn{ background:#444; color:#eee; }
+body.dark .filter-btn.active{ background:var(--primary-600); }
+
+/* --------- Small screens --------- */
+@media (max-width: 420px){
+  .action-btn{ padding:7px 10px; font-size:.85rem; }
+  #add-task-btn{ padding:10px 12px; }
+  .header h1{ font-size:1.4rem; }
+}
